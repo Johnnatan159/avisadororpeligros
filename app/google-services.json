@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "292281393385",
+    "firebase_url": "https://avisadororpeligros.firebaseio.com",
+    "project_id": "avisadororpeligros",
+    "storage_bucket": "avisadororpeligros.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:292281393385:android:a336bdbe2845354eb6d078",
+        "android_client_info": {
+          "package_name": "com.example.avisadororpeligros"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "292281393385-8c12gmqkri688149r1jgq4ca75g6uo6v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHCoYWJH686bDwN7HgMd5WyWMXTlEqYns"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "292281393385-8c12gmqkri688149r1jgq4ca75g6uo6v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

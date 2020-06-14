@@ -83,16 +83,10 @@ public class LlistarFragment extends Fragment {
     }
 
     private int getAsignarImageLiniaMetro(String lineaMetro){
-        if("Hospital de Bellvitge/Fondo".equals(lineaMetro)){
-            return R.drawable.ic_l1_barcelona;
-        }else if("Paral·lel/Badalona Pompeu Fabra".equals(lineaMetro)){
-            return R.drawable.ic_l2_barcelona;
-        }else if("Zona Universitària/Trinitat Nova".equals(lineaMetro)){
-            return R.drawable.ic_l3_barcelona;
-        }else if("La Pau/Trinitat Nova".equals(lineaMetro)){
-            return R.drawable.ic_l4_barcelona;
-        }else if("Cornellà Centre/Vall d'Hebron".equals(lineaMetro)){
-            return R.drawable.ic_l5_barcelona;
+        if("Dona".equals(lineaMetro)){
+            return R.drawable.ic_launcher_dona;
+        }else if("Home".equals(lineaMetro)){
+            return R.drawable.ic_launcher_home;
         }else{
             return 0;
         }

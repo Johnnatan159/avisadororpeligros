@@ -142,8 +142,8 @@ public class NotificarFragment extends Fragment {
         model.getCurrentAddress().observe(this, address -> {
 //            txtCiudad.setText(getString(R.string.address_text,
 //                    address, System.currentTimeMillis()));
-           // txtCiudad.setText(getString(R.string.locale_text, address));
-            //txtHora.setText(getString(R.string.hour_text, System.currentTimeMillis()));
+           txtCiudad.setText(getString(R.string.locale_text, address));
+           txtHora.setText(getString(R.string.hour_text, System.currentTimeMillis()));
         });
 
 

@@ -18,6 +18,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.maps.model.LatLng;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,99 +26,25 @@ import java.util.List;
 import java.util.Locale;
 
 public class SharedViewModel extends AndroidViewModel {
+    //...
 
-    private final Application app;
     private final MutableLiveData<String> currentAddress = new MutableLiveData<>();
     private final MutableLiveData<String> checkPermission = new MutableLiveData<>();
     private final MutableLiveData<String> buttonText = new MutableLiveData<>();
     private final MutableLiveData<Boolean> progressBar = new MutableLiveData<>();
-
-    private boolean mTrackingLocation;
-    FusedLocationProviderClient mFusedLocationClient;
+    private final MutableLiveData<LatLng> currentLatLng = new MutableLiveData<>();
 
     public SharedViewModel(@NonNull Application application) {
         super(application);
-
-        this.app = application;
     }
+    //...
 
-    void setFusedLocationClient(FusedLocationProviderClient mFusedLocationClient) {
-        this.mFusedLocationClient = mFusedLocationClient;
+    public MutableLiveData<LatLng> getCurrentLatLng() {
+        return currentLatLng;
     }
-
+    //...
     LiveData<String> getCurrentAddress() {
         return currentAddress;
-    }
-
-    MutableLiveData<String> getButtonText() {
-        return buttonText;
-    }
-
-    MutableLiveData<Boolean> getProgressBar() {
-        return progressBar;
-    }
-
-    LiveData<String> getCheckPermission() {
-        return checkPermission;
-    }
-
-    private LocationCallback mLocationCallback = new LocationCallback() {
-        @Override
-        public void onLocationResult(LocationResult locationResult) {
-            if (mTrackingLocation) {
-                new FetchAddressTask(
-                        getApplication().getApplicationContext()
-                ).execute(
-                        locationResult.getLastLocation()
-                );
-            }
-        }
-    };
-
-    private LocationRequest getLocationRequest() {
-        LocationRequest locationRequest = new LocationRequest();
-        locationRequest.setInterval(10000);
-        locationRequest.setFastestInterval(5000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        return locationRequest;
-    }
-
-    void switchTrackingLocation() {
-        if (!mTrackingLocation) {
-            startTrackingLocation(true);
-        } else {
-            stopTrackingLocation();
-        }
-
-    }
-
-    @SuppressLint("MissingPermission")
-    void startTrackingLocation(boolean needsChecking) {
-        if (needsChecking) {
-            checkPermission.postValue("check");
-        } else {
-            mFusedLocationClient.requestLocationUpdates(
-                    getLocationRequest(),
-                    mLocationCallback,
-                    null
-            );
-
-            currentAddress.postValue("Carregant...");
-
-            progressBar.postValue(true);
-            mTrackingLocation = true;
-            buttonText.setValue("Aturar el seguiment de la ubicació");
-        }
-    }
-
-
-    private void stopTrackingLocation() {
-        if (mTrackingLocation) {
-            mFusedLocationClient.removeLocationUpdates (mLocationCallback);
-            mTrackingLocation = false;
-            progressBar.postValue(false);
-            buttonText.setValue("Comença a seguir la ubicació");
-        }
     }
 
     private class FetchAddressTask extends AsyncTask<Location, Void, String> {
@@ -138,6 +65,9 @@ public class SharedViewModel extends AndroidViewModel {
             String resultMessage = "";
 
             try {
+                LatLng latlng = new LatLng(location.getLatitude(), location.getLongitude());
+                currentLatLng.postValue(latlng);
+
                 addresses = geocoder.getFromLocation(
                         location.getLatitude(),
                         location.getLongitude(),

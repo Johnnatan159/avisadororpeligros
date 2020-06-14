@@ -11,21 +11,15 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
-
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     FragmentManager fm = getSupportFragmentManager();
 
@@ -56,27 +50,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     };
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        FirebaseAuth auth = FirebaseAuth.getInstance();
-        if (auth.getCurrentUser() == null) {
-            // Choose authentication providers
-            startActivityForResult(
-                    AuthUI.getInstance()
-                            .createSignInIntentBuilder()
-                            .setAvailableProviders(
-                                    Arrays.asList(
-                                            new AuthUI.IdpConfig.EmailBuilder().build(),
-                                            new AuthUI.IdpConfig.GoogleBuilder().build()
-                                    )
-                            )
-                            .build(),
-                    0);
-        }
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +84,27 @@ public class MainActivity extends AppCompatActivity {
         model.getCheckPermission().observe(this, s -> checkPermission());
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseApp.initializeApp(this);
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        if (auth.getCurrentUser() == null) {
+            // Choose authentication providers
+            startActivityForResult(
+                    AuthUI.getInstance()
+                            .createSignInIntentBuilder()
+                            .setAvailableProviders(
+                                    Arrays.asList(
+                                            new AuthUI.IdpConfig.EmailBuilder().build(),
+                                            new AuthUI.IdpConfig.GoogleBuilder().build()
+                                    )
+                            )
+                            .build(),
+                    0);
+        }
+    }
+
     void checkPermission() {
         if (ActivityCompat.checkSelfPermission(
                 this, Manifest.permission.ACCESS_FINE_LOCATION)
@@ -143,8 +137,5 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
-
-
-
 
 }

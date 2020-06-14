@@ -2,10 +2,17 @@ package com.example.avisadororpeligros;
 
 public class Incidencia {
 
-    String latitud;
-    String longitud;
-    String direccio;
-    String problema;
+    private String url;
+    private String latitud;
+    private String longitud;
+    private String direccio;
+    private String problema;
+    private String tipoIncidencia;
+    private String numeroTelefono;
+    private String correoElectronico;
+    private String liniaMetro;
+    private String horaNotificacion;
+
 
     public String getLatitud() {
         return latitud;
@@ -39,14 +46,62 @@ public class Incidencia {
         this.problema = problema;
     }
 
-    public Incidencia(String latitud, String longitud, String direccio, String problema) {
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getTipoIncidencia() {
+        return tipoIncidencia;
+    }
+
+    public void setTipoIncidencia(String tipoIncidencia) {
+        this.tipoIncidencia = tipoIncidencia;
+    }
+
+    public String getHoraNotificacion() {
+        return horaNotificacion;
+    }
+
+    public void setHoraNotificacion(String horaNotificacion) {
+        this.horaNotificacion = horaNotificacion;
+    }
+
+    public String getNumeroTelefono() {
+        return numeroTelefono;
+    }
+
+    public void setNumeroTelefono(String numeroTelefono) {
+        this.numeroTelefono = numeroTelefono;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getLiniaMetro() {
+        return liniaMetro;
+    }
+
+    public void setLiniaMetro(String liniaMetro) {
+        this.liniaMetro = liniaMetro;
+    }
+
+    public Incidencia(String latitud, String longitud, String direccio, String problema, String url) {
         this.latitud = latitud;
         this.longitud = longitud;
         this.direccio = direccio;
         this.problema = problema;
+        this.url = url;
     }
 
     public Incidencia() {
     }
-
 }

@@ -1,8 +1,17 @@
 <resources>
-    <string name="app_name">Avisadororpeligros</string>
+    <string name="app_name">Avisadororobos</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="principal">Principal</string>
+    <string name="llistat">Llistat</string>
+    <string name="mapa">Mapa</string>
+
+    <string name="location_text">"Latitud: %1$.4f \n Longitud: %2$.4f \n Hora: %3$tr"</string>
+    <string name="address_text">"Direcció: %1$s \n Hora: %2$tr"</string>
+    <string name="locale_text">"Ciudad: %1$s"</string>
+    <string name="hour_text">"Hora: %1$tr"</string>
 </resources>

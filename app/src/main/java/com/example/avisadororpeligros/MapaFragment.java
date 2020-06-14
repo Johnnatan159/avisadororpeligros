@@ -48,7 +48,6 @@ import java.util.Arrays;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MapaFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
 public class MapaFragment extends Fragment {

@@ -161,10 +161,13 @@ public class MapaFragment extends Fragment {
         vectorDrawable.draw(canvas);
         return BitmapDescriptorFactory.fromBitmap(bitmap);
     }
-
+/*
     private int getLiniaMetroIcon(Incidencia incidencia){
         return "Hospital de Bellvitge/Fondo".equals(incidencia.getLiniaMetro()) ? R.drawable.ic_l1_barcelona : "Paral·lel/Badalona Pompeu Fabra".equals(incidencia.getLiniaMetro()) ? R.drawable.ic_l2_barcelona : "Zona Universitària/Trinitat Nova".equals(incidencia.getLiniaMetro()) ? R.drawable.ic_l3_barcelona : "La Pau/Trinitat Nova".equals(incidencia.getLiniaMetro()) ? R.drawable.ic_l4_barcelona :  R.drawable.ic_l5_barcelona;
     }
-
+*/
+    private int getLiniaMetroIcon(Incidencia incidencia){
+    return "Dona".equals(incidencia.getLiniaMetro()) ? R.drawable.ic_launcher_dona : "Home".equals(incidencia.getLiniaMetro()) ? R.drawable.ic_launcher_home : R.drawable.ic_launcher_home;
+}
 
 }

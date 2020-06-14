@@ -95,8 +95,12 @@ public class NotificarFragment extends Fragment {
         buttonNotificar = view.findViewById(R.id.buttonNotificar);
 
         //TODO:Nuevo - Lista de linieas de metro
-        String[] lineasMetroList={"Hospital de Bellvitge/Fondo","Paral·lel/Badalona Pompeu Fabra","Zona Universitària/Trinitat Nova","La Pau/Trinitat Nova","Cornellà Centre/Vall d'Hebron"};
-        int imagesMetroList[] = {R.drawable.ic_l1_barcelona,R.drawable.ic_l2_barcelona, R.drawable.ic_l3_barcelona, R.drawable.ic_l4_barcelona, R.drawable.ic_l5_barcelona};
+        // String[] lineasMetroList={"Hospital de Bellvitge/Fondo","Paral·lel/Badalona Pompeu Fabra","Zona Universitària/Trinitat Nova","La Pau/Trinitat Nova","Cornellà Centre/Vall d'Hebron"};
+        // int imagesMetroList[] = {R.drawable.ic_l1_barcelona,R.drawable.ic_l2_barcelona, R.drawable.ic_l3_barcelona, R.drawable.ic_l4_barcelona, R.drawable.ic_l5_barcelona};
+
+        String[] lineasMetroList={"Dona","Home"};
+        int imagesMetroList[] = {R.drawable.ic_launcher_dona,R.drawable.ic_launcher_home};
+
 
         //Getting the instance of Spinner and applying OnItemSelectedListener on it
         spinnerLinieasMetro = (Spinner) view.findViewById(R.id.spinnerLineasMetros);

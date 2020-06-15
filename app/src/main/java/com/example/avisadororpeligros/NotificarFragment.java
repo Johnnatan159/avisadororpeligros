@@ -80,13 +80,11 @@ public class NotificarFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_notificar, container, false);
 
-//        mLoading = view.findViewById(R.id.loading);
 
         model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
 
         txtLatitud =  view.findViewById(R.id.txtLatitud);
         txtLongitud = view.findViewById(R.id.txtLongitud);
-//        txtDireccio = view.findViewById(R.id.txtDireccio);
         txtCiudad = view.findViewById(R.id.txtCiudad);
         txtHora = view.findViewById(R.id.txtHora);
         spinnerLinieasMetro = view.findViewById(R.id.spinnerLineasMetros);
@@ -94,10 +92,8 @@ public class NotificarFragment extends Fragment {
         txtDescripcio = view.findViewById(R.id.txtDescripcio);
         buttonNotificar = view.findViewById(R.id.buttonNotificar);
 
-        //TODO:Nuevo - Lista de linieas de metro
-        // String[] lineasMetroList={"Hospital de Bellvitge/Fondo","Paral·lel/Badalona Pompeu Fabra","Zona Universitària/Trinitat Nova","La Pau/Trinitat Nova","Cornellà Centre/Vall d'Hebron"};
-        // int imagesMetroList[] = {R.drawable.ic_l1_barcelona,R.drawable.ic_l2_barcelona, R.drawable.ic_l3_barcelona, R.drawable.ic_l4_barcelona, R.drawable.ic_l5_barcelona};
 
+        //iconos home dona
         String[] lineasMetroList={"Dona","Home"};
         int imagesMetroList[] = {R.drawable.ic_launcher_dona,R.drawable.ic_launcher_home};
 
@@ -272,7 +268,7 @@ public class NotificarFragment extends Fragment {
             //Continuem sols si no tenim errors.
             if (photoFile != null) {
                 photoURI = FileProvider.getUriForFile(getContext(),
-                        "com.project.benji.notificadorincidenciasmetro.provider",
+                        "com.example.avisadororpeligros.provider",
                         photoFile);
                 //Creem l’Intent per a fer la foto.
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);

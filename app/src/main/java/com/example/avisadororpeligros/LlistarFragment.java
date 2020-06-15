@@ -68,7 +68,7 @@ public class LlistarFragment extends Fragment {
                     ImageView ivLiniaMetro = v.findViewById(R.id.ivLiniaMetro);
                     ImageView ivTipoIncidencia = v.findViewById(R.id.ivTipoIncidencia);
 
-                    txtLiniaMetro.setText("Línia de metro: " + model.getLiniaMetro());
+                    txtLiniaMetro.setText("Persona: " + model.getLiniaMetro());
                     txtTipoIncidencia.setText("Tipus d'incidència: " + model.getTipoIncidencia());
                     txtHoraNotificacion.setText(model.getHoraNotificacion());
                     ivLiniaMetro.setImageResource(getAsignarImageLiniaMetro(model.getLiniaMetro()));
